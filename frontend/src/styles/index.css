@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tg-theme-bg-color: #1a1a2e;
+  --tg-theme-text-color: #eaeaea;
+  --tg-theme-hint-color: #7a7a7a;
+  --tg-theme-link-color: #5dadec;
+  --tg-theme-button-color: #5dadec;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #16213e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Pixel font for game elements */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tg-theme-secondary-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tg-theme-hint-color);
+  border-radius: 3px;
+}
+
+/* Progress bar animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Ore glow effect */
+.ore-glow {
+  box-shadow: 0 0 15px currentColor;
+}
+
+/* ASCII art styling */
+.ascii-art {
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+  line-height: 1.2;
+}
+
+/* Mining animation */
+@keyframes mining-swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(20deg); }
+}
+
+.mining-animation {
+  animation: mining-swing 0.5s ease-in-out infinite;
+}
+
+/* Level up flash */
+@keyframes level-up-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; background-color: gold; }
+}
+
+.level-up-flash {
+  animation: level-up-flash 0.3s ease-in-out 3;
+}
+
+/* Notification pop */
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pop-in {
+  animation: pop-in 0.3s ease-out;
+}
